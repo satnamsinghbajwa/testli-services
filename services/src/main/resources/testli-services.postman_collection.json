@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "4b9728d3-c02a-4b3a-a104-a6283ef001ea",
+		"name": "testli-services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "actuator-health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/actuator/health",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-allQuestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-questionById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-addQuestion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\":\"testTitle\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"testCategory\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-updateQuestion",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\":\"testTitle\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"testCategory\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-deleteQuestion",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-question-questionSearch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/search?author=testTitle2&category=testCategory",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"questions",
+						"search"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "testTitle2"
+						},
+						{
+							"key": "category",
+							"value": "testCategory"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
