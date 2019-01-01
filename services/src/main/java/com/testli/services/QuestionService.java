@@ -1,7 +1,9 @@
 package com.testli.services;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -34,8 +36,17 @@ public class QuestionService {
 		questionRepository.deleteById(id);
 	}
 
-	public Optional<Question> getQuestion(String id) {
-		return questionRepository.findById(id);
+	public List<Question> getQuestion(String ids) {
+		List<Question> questions = new ArrayList<>();
+		if (ids != null) {
+			List<String> items = Stream.of(ids.split("\\s*,\\s*")).map(element -> new String(element))
+					.collect(Collectors.toList());
+			Iterable<Question> findAllById = questionRepository.findAllById(items);
+			for (Question question : findAllById) {
+				questions.add(question);
+			}
+		}
+		return questions;
 	}
 
 	public List<Question> searchQuestion(String author, String category) {
@@ -43,10 +54,13 @@ public class QuestionService {
 		question.setAuthor(author);
 		question.setCategory(category);
 
-		//ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnoreCase();
-
-		//Example<Question> example = Example.of(question, matcher);
-		Example<Question> example = Example.of(question);
+		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnoreCase()
+				.withMatcher("author", matcher -> matcher.ignoreCase())
+				.withMatcher("author", matcher -> matcher.contains())
+				.withMatcher("category", matcher -> matcher.ignoreCase())
+				.withMatcher("category", matcher -> matcher.contains());
+		Example<Question> example = Example.of(question, exampleMatcher);
+		// Example<Question> example = Example.of(question);
 		return questionRepository.findAll(example);
 	}
 }
