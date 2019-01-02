@@ -1,8 +1,10 @@
 package com.testli.services;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -50,12 +52,14 @@ public class UserService {
 	}
 
 	public User addUserQuestionSet(String userId, UserQuestionSet userQuestionSet) {
+		userQuestionSet.setId(UUID.randomUUID().toString());
 		Optional<User> optionalUser = userRepository.findById(userId);
 		if (optionalUser.isPresent()) {
 			User user = optionalUser.get();
-			List<UserQuestionSet> existingQuestionSets = user.getQuestionSets();
+			List<UserQuestionSet> existingQuestionSets = user.getListOfUserQuestionSet();
 			existingQuestionSets = existingQuestionSets != null ? existingQuestionSets : new ArrayList<>();
 			existingQuestionSets.add(userQuestionSet);
+			user.setListOfUserQuestionSet(existingQuestionSets);
 			userRepository.save(user);
 			return user;
 		}
@@ -66,10 +70,12 @@ public class UserService {
 		Optional<User> optionalUser = userRepository.findById(userId);
 		if (optionalUser.isPresent()) {
 			User user = optionalUser.get();
-			List<UserQuestionSet> existingQuestionSets = user.getQuestionSets();
+			List<UserQuestionSet> existingQuestionSets = user.getListOfUserQuestionSet();
 			existingQuestionSets = existingQuestionSets != null ? existingQuestionSets : new ArrayList<>();
 			removeExistingQuestionSet(questionSetId, existingQuestionSets);
+			userQuestionSet.setId(questionSetId);
 			existingQuestionSets.add(userQuestionSet);
+			user.setListOfUserQuestionSet(existingQuestionSets);
 			userRepository.save(user);
 			return user;
 		}
@@ -77,9 +83,10 @@ public class UserService {
 	}
 
 	private void removeExistingQuestionSet(String questionSetId, List<UserQuestionSet> existingQuestionSets) {
-		for (UserQuestionSet existingQuestionSet : existingQuestionSets) {
+		for (Iterator<UserQuestionSet> iterator = existingQuestionSets.iterator(); iterator.hasNext();) {
+			UserQuestionSet existingQuestionSet = iterator.next();
 			if (questionSetId.equalsIgnoreCase(existingQuestionSet.getId())) {
-				existingQuestionSets.remove(existingQuestionSet);
+				iterator.remove();
 			}
 		}
 	}
@@ -88,9 +95,10 @@ public class UserService {
 		Optional<User> optionalUser = userRepository.findById(userId);
 		if (optionalUser.isPresent()) {
 			User user = optionalUser.get();
-			List<UserQuestionSet> existingQuestionSets = user.getQuestionSets();
+			List<UserQuestionSet> existingQuestionSets = user.getListOfUserQuestionSet();
 			existingQuestionSets = existingQuestionSets != null ? existingQuestionSets : new ArrayList<>();
 			removeExistingQuestionSet(questionSetId, existingQuestionSets);
+			user.setListOfUserQuestionSet(existingQuestionSets);
 			userRepository.save(user);
 			return user;
 		}

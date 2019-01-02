@@ -62,7 +62,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/5c2bf5f7dc6cab27b5d4aab4,5c2bf5f8dc6cab27b5d4aab5",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{baseurl}}"
@@ -70,7 +70,7 @@
 					"port": "{{port}}",
 					"path": [
 						"questions",
-						"123"
+						"5c2bf5f7dc6cab27b5d4aab4,5c2bf5f8dc6cab27b5d4aab5"
 					]
 				}
 			},
@@ -95,7 +95,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"title\":\"testTitle\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"testCategory\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
+					"raw": "{\n\"title\":\"testTitle1\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"123\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
 				},
 				"url": {
 					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions",
@@ -130,10 +130,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"title\":\"testTitle\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"testCategory\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
+					"raw": "{\n\"title\":\"testTitle1\",\n\"desc\":\"testDesc\",\n\"author\":\"testTitle\",\n\"options\":[ \"option1\", \"option2\", \"option3\", \"option4\" ],\n\"answer\":\"option2\",\n\"type\":\"testType\",\n\"category\":\"testCategory\",\n\"subCategory\":\"testSubCategory\",\n\"status\":\"testStatus\"\n}"
 				},
 				"url": {
-					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/5c29b980dc6cab1e228f226f",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{baseurl}}"
@@ -141,7 +141,7 @@
 					"port": "{{port}}",
 					"path": [
 						"questions",
-						"123"
+						"5c29b980dc6cab1e228f226f"
 					]
 				}
 			},
@@ -169,7 +169,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/123",
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/5c29b78edc6cab1e228f226b",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{baseurl}}"
@@ -177,7 +177,7 @@
 					"port": "{{port}}",
 					"path": [
 						"questions",
-						"123"
+						"5c29b78edc6cab1e228f226b"
 					]
 				}
 			},
@@ -193,7 +193,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/search?author=testTitle2&category=testCategory",
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/questions/search?author=testTitle&category=",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{baseurl}}"
@@ -206,12 +206,271 @@
 					"query": [
 						{
 							"key": "author",
-							"value": "testTitle2"
+							"value": "testTitle"
 						},
 						{
 							"key": "category",
-							"value": "testCategory"
+							"value": ""
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-addUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singhString\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-getUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2d1b69dc6cab304edba181",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2d1b69dc6cab304edba181"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\":\"satnam11\",\n\"lastName\":\"singh11\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2c6dd2dc6cab2c4239050c",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2c6dd2dc6cab2c4239050c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-softdeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2c6dd2dc6cab2c4239050c",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2c6dd2dc6cab2c4239050c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-addUserQuestionSet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"questionSetName\":\"satnam\",\n\"totalNumberOfAttempts\":0,\n\"maxAttempts\":5,\n\"questionSet\":[\"1\",\"2\",\"3\"],\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2d1b69dc6cab304edba181/question-set",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2d1b69dc6cab304edba181",
+						"question-set"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-updateUserQuestionSet",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"questionSetName\":\"satnam\",\n\"totalNumberOfAttempts\":0,\n\"maxAttempts\":10,\n\"questionSet\":[\"1\",\"3\",\"4\"],\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2d1b69dc6cab304edba181/question-set/2f65dddb-3925-4050-a6c3-434c9f7998ee",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2d1b69dc6cab304edba181",
+						"question-set",
+						"2f65dddb-3925-4050-a6c3-434c9f7998ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testli-user-deleteUserQuestionSet",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"questionSetName\":\"satnam\",\n\"totalNumberOfAttempts\":0,\n\"maxAttempts\":5,\n\"questionSet\":[\"1\",\"2\",\"3\"],\n\"status\":\"active\"\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{baseurl}}:{{port}}/users/5c2d1b69dc6cab304edba181/question-set/2f65dddb-3925-4050-a6c3-434c9f7998ee",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"5c2d1b69dc6cab304edba181",
+						"question-set",
+						"2f65dddb-3925-4050-a6c3-434c9f7998ee"
 					]
 				}
 			},
