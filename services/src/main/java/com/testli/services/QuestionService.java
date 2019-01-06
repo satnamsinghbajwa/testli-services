@@ -10,10 +10,12 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import com.testli.aop.Loggable;
 import com.testli.data.Question;
 import com.testli.data.QuestionRepository;
 
 @Service
+@Loggable
 public class QuestionService {
 
 	@Autowired

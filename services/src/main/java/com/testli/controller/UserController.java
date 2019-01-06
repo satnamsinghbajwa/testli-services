@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.testli.aop.Loggable;
 import com.testli.data.User;
 import com.testli.data.UserQuestionSet;
 import com.testli.services.UserService;
 
+import lombok.extern.log4j.Log4j2;
+
 @RestController
+@Log4j2
+@Loggable
 public class UserController {
 
 	@Autowired
@@ -80,6 +85,7 @@ public class UserController {
 		if (userByEmailId.isPresent()) {
 			return userByEmailId.get();
 		}
+		log.debug("No user found for emailId : " + userByEmailId);
 		throw new ResponseStatusException(NOT_FOUND, "User not found");
 	}
 
@@ -87,6 +93,7 @@ public class UserController {
 		if (user != null) {
 			return user;
 		} else {
+			log.debug("No user found");
 			throw new ResponseStatusException(NOT_FOUND, "User not found");
 		}
 	}

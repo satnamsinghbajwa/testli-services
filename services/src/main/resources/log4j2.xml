@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%style{%d{ISO8601}}{black} : %highlight{%-5level }[%style{%t}{bright,blue}] : userAddress:%X{remoteAddress} : %X{correlationId} : %style{%C{1.}}{bright,yellow}[%style{%L}{normal,yellow}] : %msg %n%throwable " />
+		</Console>
+
+		<RollingFile name="RollingFile" fileName="../logs/testli-services.log"
+			filePattern="../logs/$${date:yyyy-MM}/testli-services-%d{-dd-MMMM-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<pattern>%d userAddress:%X{remoteAddress} thread:[%t] correlationId:%X{correlationId} class:%C{1.} line:%L message:%m %n</pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+		<Async name="RollingFileAsyncAppender" bufferSize="80" includeLocation="true">
+			<AppenderRef ref="RollingFile" />
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<AsyncRoot level="info" includeLocation="true">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFileAsyncAppender" />
+		</AsyncRoot>
+
+		<AsyncLogger name="com.testli" level="debug" includeLocation="true" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFileAsyncAppender" />
+		</AsyncLogger>
+
+	</Loggers>
+	JllllLL
+
+</Configuration>
