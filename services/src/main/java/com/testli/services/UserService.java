@@ -10,11 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import com.testli.aop.Loggable;
 import com.testli.data.User;
 import com.testli.data.UserQuestionSet;
 import com.testli.data.UserRepository;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Loggable
+@Log4j2
 public class UserService {
 
 	@Autowired
@@ -86,6 +91,7 @@ public class UserService {
 		for (Iterator<UserQuestionSet> iterator = existingQuestionSets.iterator(); iterator.hasNext();) {
 			UserQuestionSet existingQuestionSet = iterator.next();
 			if (questionSetId.equalsIgnoreCase(existingQuestionSet.getId())) {
+				log.debug("removing question set for QuestionSet : " + existingQuestionSet.getId());
 				iterator.remove();
 			}
 		}
