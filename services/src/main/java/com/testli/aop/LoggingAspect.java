@@ -48,15 +48,20 @@ public class LoggingAspect {
 		long duration;
 		Object returnVal = null;
 		try {
-			logger.log(Level.valueOf(loggable.value().name()), loggerFormatter.formatArguments(joinPoint, loggable));
+			if (logger.isEnabled(Level.valueOf(loggable.value().name()))) {
+				logger.log(Level.valueOf(loggable.value().name()),
+						loggerFormatter.formatArguments(joinPoint, loggable));
+			}
 			returnVal = joinPoint.proceed();
 			duration = System.nanoTime() - start;
-			logger.log(Level.valueOf(loggable.value().name()),
-					loggerFormatter.formatResults(joinPoint, loggable, returnVal, duration));
+			if (logger.isEnabled(Level.valueOf(loggable.value().name()))) {
+				logger.log(Level.valueOf(loggable.value().name()),
+						loggerFormatter.formatResults(joinPoint, loggable, returnVal, duration));
+			}
 			return returnVal;
 		} catch (Throwable ex) {
 			duration = System.nanoTime() - start;
-			logger.log(Level.ERROR, loggerFormatter.formatResults(joinPoint, loggable, returnVal, duration), ex);
+			logger.error(loggerFormatter.formatResults(joinPoint, loggable, returnVal, duration), ex);
 			throw ex;
 		}
 	}
