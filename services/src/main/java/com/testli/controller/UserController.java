@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.testli.aop.Loggable;
-import com.testli.data.User;
-import com.testli.data.UserQuestionSet;
+import com.testli.data.model.User;
+import com.testli.data.model.UserQuestionSet;
 import com.testli.services.UserService;
 
 import lombok.extern.log4j.Log4j2;

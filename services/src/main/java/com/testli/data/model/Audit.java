@@ -1,4 +1,4 @@
-package com.testli.data;
+package com.testli.data.model;
 
 import java.util.Date;
 
@@ -20,27 +20,41 @@ public class Audit {
 	private Date updatedTime;
 	@Field("uV")
 	private String updatedValue;
+
+	public Audit() {
+		this.updatedBy = "SYSTEM";
+		this.updatedTime = new Date();
+		this.updatedValue = "SYSTEM";
+	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
+
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
+
 	public Date getUpdatedTime() {
 		return updatedTime;
 	}
+
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
 	}
+
 	public String getUpdatedValue() {
 		return updatedValue;
 	}
+
 	public void setUpdatedValue(String updatedValue) {
 		this.updatedValue = updatedValue;
 	}

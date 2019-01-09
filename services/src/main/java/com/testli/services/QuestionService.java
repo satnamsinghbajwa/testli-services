@@ -11,8 +11,8 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.testli.aop.Loggable;
-import com.testli.data.Question;
-import com.testli.data.QuestionRepository;
+import com.testli.data.model.Question;
+import com.testli.data.repository.QuestionRepository;
 
 @Service
 @Loggable

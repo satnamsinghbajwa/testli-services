@@ -11,9 +11,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.testli.aop.Loggable;
-import com.testli.data.User;
-import com.testli.data.UserQuestionSet;
-import com.testli.data.UserRepository;
+import com.testli.data.model.User;
+import com.testli.data.model.UserQuestionSet;
+import com.testli.data.repository.UserRepository;
 
 import lombok.extern.log4j.Log4j2;
 

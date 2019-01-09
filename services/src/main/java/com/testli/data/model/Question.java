@@ -1,4 +1,4 @@
-package com.testli.data;
+package com.testli.data.model;
 
 import java.util.List;
 
@@ -29,6 +29,7 @@ public class Question {
 	@DBRef
 	private Audit audit;
 	@DBRef
+	// TODO Added List<ReferenceMaterial>
 	private ReferenceMaterial referenceMaterial;
 	public String getId() {
 		return id;

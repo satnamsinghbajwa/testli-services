@@ -1,4 +1,4 @@
-package com.testli.data;
+package com.testli.data.model;
 
 import java.util.Date;
 import java.util.Set;
