@@ -85,7 +85,7 @@ public class UserController {
 		if (userByEmailId.isPresent()) {
 			return userByEmailId.get();
 		}
-		log.debug("No user found for emailId : " + userByEmailId);
+		// log.debug("No user found for emailId : " + userByEmailId);
 		throw new ResponseStatusException(NOT_FOUND, "User not found");
 	}
 
@@ -93,7 +93,7 @@ public class UserController {
 		if (user != null) {
 			return user;
 		} else {
-			log.debug("No user found");
+			// log.debug("No user found");
 			throw new ResponseStatusException(NOT_FOUND, "User not found");
 		}
 	}

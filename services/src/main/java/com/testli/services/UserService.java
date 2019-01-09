@@ -91,7 +91,8 @@ public class UserService {
 		for (Iterator<UserQuestionSet> iterator = existingQuestionSets.iterator(); iterator.hasNext();) {
 			UserQuestionSet existingQuestionSet = iterator.next();
 			if (questionSetId.equalsIgnoreCase(existingQuestionSet.getId())) {
-				log.debug("removing question set for QuestionSet : " + existingQuestionSet.getId());
+				// log.debug("removing question set for QuestionSet : " +
+				// existingQuestionSet.getId());
 				iterator.remove();
 			}
 		}
