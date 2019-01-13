@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Document
-public class QuestionSet {
+public class QuestionSet extends Audit {
 
 	@Id
 	private String id;

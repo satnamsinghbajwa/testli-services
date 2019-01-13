@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Document
 @Data
-public class User {
+public class User extends Audit {
 
 	@Id
 	private String id;
