@@ -2,7 +2,6 @@ package com.testli.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,14 +41,8 @@ public class RoleService {
 		return roles;
 	}
 
-	public Role deleteRole(String id) {
-		Optional<Role> optionalRole = roleRepository.findById(id);
-		if (optionalRole.isPresent()) {
-			Role role = optionalRole.get();
-			roleRepository.delete(role);
-			return role;
-		}
-		return null;
+	public void deleteRole(String id) {
+		roleRepository.deleteById(id);
 	}
 
 }

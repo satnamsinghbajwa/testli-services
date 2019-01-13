@@ -40,8 +40,8 @@ public class RoleController {
 	}
 
 	@RequestMapping(value = "/roles/{id}", method = DELETE, headers = { "Accept=application/json" })
-	public Role deleteRole(@PathVariable("id") String id) {
-		return roleService.deleteRole(id);
+	public void deleteRole(@PathVariable("id") String id) {
+		roleService.deleteRole(id);
 	}
 
 }

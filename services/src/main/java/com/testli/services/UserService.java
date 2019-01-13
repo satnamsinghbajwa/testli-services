@@ -1,5 +1,8 @@
 package com.testli.services;
 
+import static com.testli.common.exception.ExceptionConstants.QUESTION_SET_NOT_FOUND;
+import static com.testli.common.exception.ExceptionConstants.USER_NOT_FOUND;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,6 +16,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.testli.aop.Loggable;
+import com.testli.common.exception.ResourceNotFoundException;
 import com.testli.data.model.User;
 import com.testli.data.model.UserQuestionSet;
 import com.testli.data.repo.UserRepository;
@@ -57,7 +61,7 @@ public class UserService {
 			userRepository.save(user);
 			return user;
 		}
-		return null;
+		throw new ResourceNotFoundException(USER_NOT_FOUND, "user not found : " + id);
 	}
 
 	public Optional<User> getUserByEmailId(String emailId) {
@@ -79,7 +83,7 @@ public class UserService {
 			userRepository.save(user);
 			return user;
 		}
-		return null;
+		throw new ResourceNotFoundException(USER_NOT_FOUND, "user not found : " + userId);
 	}
 
 	public User updateUserQuestionSet(String userId, String questionSetId, UserQuestionSet userQuestionSet) {
@@ -95,7 +99,7 @@ public class UserService {
 			userRepository.save(user);
 			return user;
 		}
-		return null;
+		throw new ResourceNotFoundException(USER_NOT_FOUND, "user not found : " + userId);
 	}
 
 	private void removeExistingQuestionSet(String questionSetId, List<UserQuestionSet> existingQuestionSets) {
@@ -119,6 +123,6 @@ public class UserService {
 			userRepository.save(user);
 			return user;
 		}
-		return null;
+		throw new ResourceNotFoundException(QUESTION_SET_NOT_FOUND, "question set not found : " + questionSetId);
 	}
 }
