@@ -1,4 +1,4 @@
-package com.testli.services;
+package com.testli.services.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

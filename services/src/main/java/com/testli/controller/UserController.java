@@ -6,6 +6,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.testli.aop.Loggable;
-import com.testli.data.User;
-import com.testli.data.UserQuestionSet;
+import com.testli.data.model.User;
+import com.testli.data.model.UserQuestionSet;
 import com.testli.services.UserService;
 
 import lombok.extern.log4j.Log4j2;
@@ -41,9 +42,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/users/{id}", method = GET, headers = { "Accept=application/json" })
-	public User getUser(@PathVariable("id") String id) {
-		Optional<User> user = userService.getUser(id);
-		return checkOptionalUserExistence(user);
+	public List<User> getUser(@PathVariable("id") String id) {
+		return userService.getUser(id);
 	}
 
 	@RequestMapping(value = "/users/{id}", method = DELETE, headers = { "Accept=application/json" })

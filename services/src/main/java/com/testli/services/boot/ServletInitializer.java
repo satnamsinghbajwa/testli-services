@@ -1,4 +1,4 @@
-package com.testli.services;
+package com.testli.services.boot;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

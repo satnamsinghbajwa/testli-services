@@ -5,15 +5,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.testli.aop.Loggable;
-import com.testli.data.User;
-import com.testli.data.UserQuestionSet;
-import com.testli.data.UserRepository;
+import com.testli.data.model.User;
+import com.testli.data.model.UserQuestionSet;
+import com.testli.data.repo.UserRepository;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -34,8 +36,17 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-	public Optional<User> getUser(String id) {
-		return userRepository.findById(id);
+	public List<User> getUser(String ids) {
+		List<User> users = new ArrayList<>();
+		if (ids != null) {
+			List<String> items = Stream.of(ids.split("\\s*,\\s*")).map(element -> new String(element))
+					.collect(Collectors.toList());
+			Iterable<User> findAllById = userRepository.findAllById(items);
+			for (User user : findAllById) {
+				users.add(user);
+			}
+		}
+		return users;
 	}
 
 	public User deleteUser(String id) {
