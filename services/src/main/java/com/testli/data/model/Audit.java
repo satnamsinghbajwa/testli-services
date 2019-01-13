@@ -2,61 +2,53 @@ package com.testli.data.model;
 
 import java.util.Date;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-import lombok.Data;
-
-@Document
-@Data
 public class Audit {
 	
-	@Id
-	private String id;
-	@Field("uB")
-	private String updatedBy;
-	@Field("uT")
-	private Date updatedTime;
-	@Field("uV")
-	private String updatedValue;
+	private String createdBy;
+	private Date createdDate;
+
+	private String modifiedBy;
+	private Date modifiedDate;
 
 	public Audit() {
-		this.updatedBy = "SYSTEM";
-		this.updatedTime = new Date();
-		this.updatedValue = "SYSTEM";
+		super();
+		this.createdBy = "System";
+		this.createdDate = new Date();
+		this.modifiedBy = "System";
+		this.modifiedDate = new Date();
 	}
 
-	public String getId() {
-		return id;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
-	public String getUpdatedBy() {
-		return updatedBy;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
-	public Date getUpdatedTime() {
-		return updatedTime;
+	public String getModifiedBy() {
+		return modifiedBy;
 	}
 
-	public void setUpdatedTime(Date updatedTime) {
-		this.updatedTime = updatedTime;
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
-	public String getUpdatedValue() {
-		return updatedValue;
+	public Date getModifiedDate() {
+		return modifiedDate;
 	}
 
-	public void setUpdatedValue(String updatedValue) {
-		this.updatedValue = updatedValue;
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
-	
+
 }

@@ -30,7 +30,6 @@ public class QuestionService {
 	}
 
 	public Question updateQuestion(String id, Question question) {
-		question.setId(id);
 		return questionRepository.save(question);
 	}
 
