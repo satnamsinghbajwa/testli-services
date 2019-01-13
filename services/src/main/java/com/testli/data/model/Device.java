@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Document
 @Data
-public class Device {
+public class Device extends Audit {
 	
 	@Id
 	private String id;
