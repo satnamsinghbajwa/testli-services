@@ -77,7 +77,7 @@
 							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
 						},
 						"url": {
-							"raw": "{{protocol}}://{{baseurl}}:{{port}}/roles/5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1",
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/roles/5c2bf5f7dc6cab27b5d4aab4,5c3bb766b8db0304834d7093",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{baseurl}}"
@@ -85,7 +85,7 @@
 							"port": "{{port}}",
 							"path": [
 								"roles",
-								"5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1"
+								"5c2bf5f7dc6cab27b5d4aab4,5c3bb766b8db0304834d7093"
 							]
 						}
 					},
@@ -157,7 +157,7 @@
 							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
 						},
 						"url": {
-							"raw": "{{protocol}}://{{baseurl}}:{{port}}/roles/5c3ba60db8db0303ce2b25f1",
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/roles/5c3bb766b8db0304834d7093",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{baseurl}}"
@@ -165,7 +165,7 @@
 							"port": "{{port}}",
 							"path": [
 								"roles",
-								"5c3ba60db8db0303ce2b25f1"
+								"5c3bb766b8db0304834d7093"
 							]
 						}
 					},
@@ -245,7 +245,7 @@
 							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
 						},
 						"url": {
-							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1",
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c2bf5f7dc6cab27b5d4aab4,5c3c23aab8db03057dd807f6",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{baseurl}}"
@@ -253,7 +253,7 @@
 							"port": "{{port}}",
 							"path": [
 								"benefits",
-								"5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1"
+								"5c2bf5f7dc6cab27b5d4aab4,5c3c23aab8db03057dd807f6"
 							]
 						}
 					},
@@ -285,7 +285,7 @@
 							"raw": "{\n\"name\":\"unlimitedRetry\",\n\"description\":\"Unlimited Retry\",\n\"status\":\"active\"\n}"
 						},
 						"url": {
-							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3ba60db8db0303ce2b25f1",
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3c23aab8db03057dd807f6",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{baseurl}}"
@@ -293,7 +293,7 @@
 							"port": "{{port}}",
 							"path": [
 								"benefits",
-								"5c3ba60db8db0303ce2b25f1"
+								"5c3c23aab8db03057dd807f6"
 							]
 						}
 					},
@@ -325,7 +325,7 @@
 							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
 						},
 						"url": {
-							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3ba60db8db0303ce2b25f1",
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3c23aab8db03057dd807f6",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{baseurl}}"
@@ -333,7 +333,197 @@
 							"port": "{{port}}",
 							"path": [
 								"benefits",
-								"5c3ba60db8db0303ce2b25f1"
+								"5c3c23aab8db03057dd807f6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6efaff3d-448c-4312-beb4-0c90d79d6c6b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3445042a-ff68-4091-9bef-862fde23ad35",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "testli-categories-addCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"english\",\n\"description\":\"english questions\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/categories",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-categories-getCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/categories/5c2bf5f7dc6cab27b5d4aab4,5c3c28d2b8db03059f2092ca",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"categories",
+								"5c2bf5f7dc6cab27b5d4aab4,5c3c28d2b8db03059f2092ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-categories-updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"english\",\n\"description\":\"english questions set 1\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/categories/5c3c28d2b8db03059f2092ca",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"categories",
+								"5c3c28d2b8db03059f2092ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-categories-deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"english\",\n\"description\":\"english\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/categories/5c3c28d2b8db03059f2092ca",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"categories",
+								"5c3c28d2b8db03059f2092ca"
 							]
 						}
 					},
