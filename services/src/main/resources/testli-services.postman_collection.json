@@ -174,6 +174,196 @@
 			]
 		},
 		{
+			"name": "Benefit",
+			"item": [
+				{
+					"name": "testli-benefits-addBenefit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"unlimitedRetry\",\n\"description\":\"Unlimited Retry\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"benefits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-benefits-getBenefit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"benefits",
+								"5c2bf5f7dc6cab27b5d4aab4,5c3ba60db8db0303ce2b25f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-benefits-updateBenefit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"unlimitedRetry\",\n\"description\":\"Unlimited Retry\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3ba60db8db0303ce2b25f1",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"benefits",
+								"5c3ba60db8db0303ce2b25f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testli-benefits-deleteBenefit",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/benefits/5c3ba60db8db0303ce2b25f1",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"benefits",
+								"5c3ba60db8db0303ce2b25f1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6efaff3d-448c-4312-beb4-0c90d79d6c6b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3445042a-ff68-4091-9bef-862fde23ad35",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "membership",
 			"item": [
 				{
@@ -300,7 +490,7 @@
 					"response": []
 				},
 				{
-					"name": "membership-deleteMembership",
+					"name": "-deleteMembership",
 					"request": {
 						"method": "DELETE",
 						"header": [
