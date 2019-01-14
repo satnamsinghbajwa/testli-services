@@ -174,6 +174,174 @@
 			]
 		},
 		{
+			"name": "membership",
+			"item": [
+				{
+					"name": "testli-membership-addMembership",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"membershipType\":0,\n\"description\":\"basic\",\n\"benefits\":[],\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/memberships",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"memberships"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membership-getMembership",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/memberships/5c2bf5f7dc6cab27b5d4aab4,5c3c1eccb8db030541da1778",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"memberships",
+								"5c2bf5f7dc6cab27b5d4aab4,5c3c1eccb8db030541da1778"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membership-updateMembership",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5c3bddb5b8db0304ec8a396d\",\n    \"membershipType\": 1,\n    \"description\": \"premium\",\n    \"benefits\": [],\n    \"status\": \"active\",\n    \"audit\": null\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/memberships/5c3c1eccb8db030541da1778",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"memberships",
+								"5c3c1eccb8db030541da1778"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membership-deleteMembership",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Correlation-ID",
+								"type": "text",
+								"value": "testli_web_34343243243"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\":\"satnam\",\n\"lastName\":\"singh\",\n\"emailId\":\"satnam.singh.bajwa@gmail.com\",\n\"phoneNumber\":\"1234\",\n\"status\":\"active\"\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{baseurl}}:{{port}}/memberships/5c3c1e97b8db030541da1777",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"memberships",
+								"5c3c1e97b8db030541da1777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "user",
 			"item": [
 				{
