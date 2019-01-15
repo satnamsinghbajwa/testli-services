@@ -34,6 +34,16 @@ public class CategoryController {
 		return categoryService.updateCategory(id, category);
 	}
 
+	@RequestMapping(value = "/categories/{id}/parent/{parentId}", method = PUT, headers = { "Accept=application/json" })
+	public Category updateParent(@PathVariable("id") String id, @PathVariable("childId") String parentId) {
+		return categoryService.updateParent(id, parentId);
+	}
+
+	@RequestMapping(value = "/categories/{id}/childs/{childId}", method = POST, headers = { "Accept=application/json" })
+	public Category addChildCategory(@PathVariable("id") String id, @PathVariable("childId") String childId) {
+		return categoryService.addChildCategory(id, childId);
+	}
+
 	@RequestMapping(value = "/categories/{id}", method = GET, headers = { "Accept=application/json" })
 	public List<Category> getCategory(@PathVariable("id") String id) {
 		return categoryService.getCategory(id);
@@ -42,6 +52,22 @@ public class CategoryController {
 	@RequestMapping(value = "/categories/{id}", method = DELETE, headers = { "Accept=application/json" })
 	public void deleteCategory(@PathVariable("id") String id) {
 		categoryService.deleteCategory(id);
+	}
+
+	@RequestMapping(value = "/categories/{id}/childs/{childId}", method = DELETE, headers = {
+			"Accept=application/json" })
+	public Category deleteChildCategory(@PathVariable("id") String id, @PathVariable("childId") String childId) {
+		return categoryService.deleteChildCategory(id, childId);
+	}
+
+	@RequestMapping(value = "/categories/{id}/parent", method = DELETE, headers = { "Accept=application/json" })
+	public Category deleteParent(@PathVariable("id") String id) {
+		return categoryService.deleteParent(id);
+	}
+
+	@RequestMapping(value = "/categories", method = GET, headers = { "Accept=application/json" })
+	public List<Category> getAllCategories() {
+		return categoryService.getAllCategories();
 	}
 
 }

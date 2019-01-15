@@ -14,7 +14,7 @@ public enum MembershipType {
 		return this.membershipCode;
 	}
 
-	public static MembershipType getMembershipByCode(int membershipCode) {
+	public static MembershipType getMembershipTypeByCode(int membershipCode) {
 		for (MembershipType membershipType : MembershipType.values()) {
 			if (membershipType.getMembershipCode() == membershipCode) {
 				return membershipType;
