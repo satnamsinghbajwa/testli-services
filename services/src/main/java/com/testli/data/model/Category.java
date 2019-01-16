@@ -22,7 +22,6 @@ public class Category {
 	private String name;
 	private String description;
 	private String status;
-	private Audit audit;
 	@Indexed
 	private List<String> childrenIds;
 	@Indexed

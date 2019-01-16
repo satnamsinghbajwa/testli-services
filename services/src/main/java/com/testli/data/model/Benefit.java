@@ -20,7 +20,6 @@ public class Benefit {
 	private String name;
 	private String description;
 	private String status;
-	private Audit audit;
 	@CreatedBy
 	private String createdBy;
 	@CreatedDate
