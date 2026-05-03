@@ -41,8 +41,7 @@ public class QuestionService {
 	public List<Question> getQuestion(String ids) {
 		List<Question> questions = new ArrayList<>();
 		if (ids != null) {
-			List<String> items = Stream.of(ids.split("\\s*,\\s*")).map(element -> new String(element))
-					.collect(Collectors.toList());
+			List<String> items = Stream.of(ids.split(",")).map(String::trim).collect(Collectors.toList());
 			Iterable<Question> findAllById = questionRepository.findAllById(items);
 			for (Question question : findAllById) {
 				questions.add(question);
